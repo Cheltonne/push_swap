@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:53:39 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 2 || !parse_list(av))
+	if (ac < 2 || !parse_list(ac, av))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	return (0);
 }

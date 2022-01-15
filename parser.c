@@ -6,7 +6,7 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:55:16 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:58:02 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:53:07 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	parse_list(int ac, char **av)
 {
-	size_t	i;
-	char	**list;
+	int			i;
+	size_t		o;
 
-	list = malloc(sizeof(char *) * ac - 1)
-	if (!list)
-		return (0);
 	i = 1;
 	while (i < ac)
 	{
-		list[i] = av[i];
+		o = 0;
+		while(o < ft_strlen(av[i]))
+		{
+			if (!ft_isdigit(av[i][o]))
+					return (0);
+			o++;
+		}
 		i++;
 	}
 	return (1);
