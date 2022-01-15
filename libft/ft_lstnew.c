@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/06/28 00:01:05 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/30 23:29:54 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstnew(void *content)
 {
-	if (ac != 2 || !parse_list(av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+	t_list	*elem;
+
+	elem = malloc(sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

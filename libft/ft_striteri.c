@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/07/08 08:43:37 by chajax            #+#    #+#             */
+/*   Updated: 2021/07/14 11:54:29 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (ac != 2 || !parse_list(av))
+	unsigned int	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		f(i, &s[i]);
+		i++;
 	}
 }

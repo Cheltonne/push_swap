@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/06/16 10:35:15 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/24 17:20:50 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strmapi(char const *s, char (*f)(unsigned
+			int, char))
 {
-	if (ac != 2 || !parse_list(av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+	unsigned int		i;
+	char				*ret;
+
+	i = -1;
+	ret = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!ret || !s)
+		return (NULL);
+	while (s[++i])
+		ret[i] = f(i, s[i]);
+	ret[i] = '\0';
+	return (ret);
 }

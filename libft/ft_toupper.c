@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chajax </var/spool/mail/chajax>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/05/27 16:43:10 by chajax            #+#    #+#             */
+/*   Updated: 2021/07/13 13:56:23 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_toupper(int c)
 {
-	if (ac != 2 || !parse_list(av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+	if ((c >= 'a' && c <= 'z'))
+		return (c - 32);
+	return (c);
 }

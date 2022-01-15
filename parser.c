@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2022/01/15 17:55:16 by chajax            #+#    #+#             */
+/*   Updated: 2022/01/15 19:58:02 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	parse_list(int ac, char **av)
 {
-	if (ac != 2 || !parse_list(av))
+	size_t	i;
+	char	**list;
+
+	list = malloc(sizeof(char *) * ac - 1)
+	if (!list)
+		return (0);
+	i = 1;
+	while (i < ac)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		list[i] = av[i];
+		i++;
 	}
+	return (1);
 }

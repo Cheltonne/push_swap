@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/05/25 21:07:45 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/21 13:09:08 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	if (ac != 2 || !parse_list(av))
+	const char	*src_ptr;
+	char		*dest_ptr;
+
+	src_ptr = src;
+	dest_ptr = dest;
+	if (!dest || !src)
+		return (NULL);
+	while (n && *src_ptr != c)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		*(dest_ptr++) = *(src_ptr++);
+		n--;
 	}
+	if (*src_ptr == c && n)
+	{
+		*dest_ptr = *src_ptr;
+		dest = dest_ptr + 1;
+		return (dest);
+	}
+	return (NULL);
 }

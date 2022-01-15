@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/05/25 21:23:03 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/22 12:41:16 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (ac != 2 || !parse_list(av))
+	const char	*src_ptr;
+	char		*dest_ptr;
+	int			i;
+
+	src_ptr = src;
+	dest_ptr = dest;
+	if (!dest || !src)
+		return (NULL);
+	if (dest < src)
+		ft_memcpy(dest, src, n);
+	else if (dest > src)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		i = n - 1;
+		while (i >= 0)
+		{
+			dest_ptr[i] = src_ptr[i];
+			i--;
+		}
 	}
+	return (dest);
 }

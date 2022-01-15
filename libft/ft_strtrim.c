@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/06/02 16:10:56 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/02 21:10:14 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (ac != 2 || !parse_list(av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
+	int		src_len;
+	char	*new;
+
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	src_len = ft_strlen(s1) - 1;
+	while (src_len && ft_strchr(set, s1[src_len]))
+		src_len--;
+	new = ft_substr(s1, 0, src_len + 1);
+	return (new);
 }

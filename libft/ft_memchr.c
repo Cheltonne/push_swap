@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chajax </var/spool/mail/chajax>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/05/26 22:39:02 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/22 12:55:13 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (ac != 2 || !parse_list(av))
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	while (n--)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		if (*str == (unsigned char)c)
+			return ((void *)(str));
+		str++;
 	}
+	return (NULL);
 }

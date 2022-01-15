@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chajax </var/spool/mail/chajax>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 17:27:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 17:34:07 by chajax           ###   ########.fr       */
+/*   Created: 2021/05/28 07:07:56 by chajax            #+#    #+#             */
+/*   Updated: 2021/07/14 11:58:17 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_error(char *message)
+int	ft_tolower(int c)
 {
-	ft_putstr_fd(message, )
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

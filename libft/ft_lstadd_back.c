@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/15 19:09:43 by chajax           ###   ########.fr       */
+/*   Created: 2021/06/28 00:49:33 by chajax            #+#    #+#             */
+/*   Updated: 2021/06/30 23:29:30 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	if (ac != 2 || !parse_list(av))
+	t_list	*last;
+
+	if (!*alst)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		*alst = new;
+		return ;
 	}
+	last = ft_lstlast(*alst);
+	last->next = new;
 }
