@@ -8,6 +8,8 @@ RM = rm -f
 FILES = push_swap \
 	     push_swap_utils \
 	     parser \
+	     free_fct \
+	     moves \
 
 SRCS =  $(addsuffix .c, $(FILES))
 
