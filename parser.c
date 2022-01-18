@@ -6,7 +6,7 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:55:16 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/17 15:01:12 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/18 14:07:11 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int	has_duplicate(int ac, char **av)
 	return (0);
 }
 
-int	parse_list(int ac, char **av)
+int	parse_list(int size, char **av)
 {
 	int			i;
 
 	i = 1;
-	while (i < ac)
+	while (i < size)
 	{
 		if ((ft_atoi(av[i]) == 0 && av[i][0] != '0') || !is_int(av[i]) ||
-				has_duplicate(ac, av))
+				has_duplicate(size, av))
 			return (0);
 		i++;
 	}

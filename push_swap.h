@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:28:26 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/17 18:29:56 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/18 18:42:22 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@
 # include "libft/libft.h"
 # include <limits.h>
 
+#include <stdio.h>
+
 typedef struct data
 {
-	t_list	*a;	
-	t_list	*b;	
+	t_list	*a;
+	t_list	*b;
+	t_list	*a_cpy;
+	int		size;
 }			t_data;
 
 typedef struct s_elem
 {
-	int	value;
-	int	index;
+	int		value;
+	int		index;
+	char	*bin;
 }			t_elem;
 
 void	sa(t_data *data);
@@ -39,11 +44,14 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
-int		parse_list(int ac, char **av);
-void	init(t_data *data, int ac, char **av);
+int		parse_list(int size, char **av);
+void	init(t_data *data, char **av);
 void	del(void *content);
+void	set_indexes(t_data *data);
+void	set_bin_val(t_data *data, int choice);
+char	*conv_bin(int n);
 
-int		bubble_sort(t_data *data, int ac);
-void	stack_visualizer(t_data *data, int ac);
+int		bubble_sort(t_data *data);
+void	stack_visualizer(t_data *data, int choice);
 
 #endif
