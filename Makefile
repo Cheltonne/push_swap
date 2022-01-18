@@ -10,6 +10,7 @@ FILES = push_swap \
 	     parser \
 	     free_fct \
 	     moves \
+	     sorting \
 
 SRCS =  $(addsuffix .c, $(FILES))
 

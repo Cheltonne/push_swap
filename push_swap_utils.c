@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:25:13 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/18 19:09:51 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/19 00:29:15 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	init(t_data *data, char **av)
 	i = 1;
 	head = ft_lstnew(new_elem(ft_atoi(av[i]), 0));
 	head_cpy = ft_lstnew(new_elem(ft_atoi(av[i]), 0));
+	data->b = ft_lstnew(NULL);
 	data->a = head;
 	data->a_cpy = head_cpy;
 	i++;
@@ -76,7 +77,6 @@ int	bubble_sort(t_data *data)
 	t_elem 	**arr;
 	t_list	*lst;
 
-	write(1, "\n", 1);
 	arr = ft_calloc(data->size, sizeof(t_elem *));
 	if (!arr)
 		return (0);

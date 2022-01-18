@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/18 18:53:46 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/19 00:29:33 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ int	main(int ac, char **av)
 		return (1);
 	data->size = ac;
 	init(data, av);
-	stack_visualizer(data, 1);
+	//stack_visualizer(data, 1);
 	bubble_sort(data);
-	stack_visualizer(data, 42);
+	//stack_visualizer(data, 42);
 	set_indexes(data);
-	stack_visualizer(data, 1);
+	//stack_visualizer(data, 1);
 	set_bin_val(data, 1);
-	t_elem *elem = data->a->content;
-	printf("\nBinary value of the first number in stack a: %s\n", elem->bin);
+	sorting(data);
 	ft_lstclear(&data->a, &del);
 	ft_lstclear(&data->a_cpy, &del);
 	free(data);
