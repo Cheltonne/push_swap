@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:35:03 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/19 00:29:33 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/19 17:04:09 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	if (ac < 3)
-		return (1);
-	if (!parse_list(ac, av))
+	if (!parse_list(ac, av) || ac < 3)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
@@ -32,9 +30,8 @@ int	main(int ac, char **av)
 	bubble_sort(data);
 	//stack_visualizer(data, 42);
 	set_indexes(data);
+	sort_big_stack(data);
 	//stack_visualizer(data, 1);
-	set_bin_val(data, 1);
-	sorting(data);
 	ft_lstclear(&data->a, &del);
 	ft_lstclear(&data->a_cpy, &del);
 	free(data);

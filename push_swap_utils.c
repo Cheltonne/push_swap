@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:25:13 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/19 00:29:15 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/19 17:45:31 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@ void	stack_visualizer(t_data *data, int choice)
 {
 	t_list	*suisei;
 	t_elem	*hosimati;
+	int		size = ft_lstsize(data->a) - 1;
 
 	if (choice == 1)
 		suisei = data->a;
 	else
-		suisei = data->a_cpy;
-	for (int i = 0; i < data->size - 1; i++)
+		suisei = data->b;
+	for (int i = 0; i < size; i++)
 	{
 		hosimati = suisei->content;
-		printf("    %d             %d\n", hosimati->value, hosimati->index);
-		suisei = suisei->next;
+		if (hosimati)
+		{
+			printf("    %d             %d\n", hosimati->value, hosimati->index);
+			suisei = suisei->next;
+		}
 	}
 	printf("-----------        -----------\n");
 	printf("Values             Indexes\n");
@@ -118,62 +122,6 @@ void	set_indexes(t_data *data)
 			lst_cpy = lst_cpy->next;
 			o++;
 		}
-		lst = lst->next;
-		i++;
-	}
-}
-
-char	*conv_bin(int n)
-{
-    char	*bin;
-	int		i;
-	
-	bin = ft_calloc(32, 1);
-	if (!bin)
-		return (NULL);
-	i = 0;
-	while (n > 0)
-	{
-        bin[i] = n % 2 + 48;
-        n = n / 2;
-        i++;
-    }
-	return (bin);
-}
-
-void	rev_str(char *str)
-{
-	char		tmp;
-	size_t		i;
-	size_t		len;
-
-	len = ft_strlen(str);
-	i = 0;
-	while (i < ft_strlen(str) / 2)
-	{
-		tmp = str[i];
-        str[i] = str[len - i - 1];
-        str[len - i - 1] = tmp;
-		i++;
-	}
-}
-
-void	set_bin_val(t_data *data, int choice)
-{
-	int 	i;
-	t_list	*lst;
-	t_elem	*elem;
-
-	if (choice == 1)
-		lst = data->a;
-	else
-		lst = data->a_cpy;
-	i = 0;
-	while (i < data->size - 2)
-	{
-		elem = lst->content;
-		elem->bin = conv_bin(elem->value);
-		rev_str(elem->bin);
 		lst = lst->next;
 		i++;
 	}
