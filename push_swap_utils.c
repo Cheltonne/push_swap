@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:25:13 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/19 17:45:31 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/20 01:25:16 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	stack_visualizer(t_data *data, int choice)
 		suisei = data->a;
 	else
 		suisei = data->b;
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i <= size; i++)
 	{
 		hosimati = suisei->content;
 		if (hosimati)
@@ -56,7 +56,6 @@ void	init(t_data *data, char **av)
 	i = 1;
 	head = ft_lstnew(new_elem(ft_atoi(av[i]), 0));
 	head_cpy = ft_lstnew(new_elem(ft_atoi(av[i]), 0));
-	data->b = ft_lstnew(NULL);
 	data->a = head;
 	data->a_cpy = head_cpy;
 	i++;
@@ -125,4 +124,31 @@ void	set_indexes(t_data *data)
 		lst = lst->next;
 		i++;
 	}
+}
+
+int	is_sorted(t_data *data)
+{
+	int		i;
+	t_elem 	**arr;
+	t_list	*lst;
+	int size;
+
+	size = ft_lstsize(data->a);
+	arr = ft_calloc(size, sizeof(t_elem *));
+	if (!arr)
+		return (0);
+	lst = data->a;
+	for (int o = 0; o < size; o++)
+	{
+		arr[o] = lst->content;
+		lst = lst->next;
+	}
+	for (i = 0; i < size - 1; i++)
+		if (arr[i]->index > arr[i + 1]->index)
+		{
+			free(arr);
+			return (0);
+		}
+	free(arr);
+	return (1);
 }

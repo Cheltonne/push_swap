@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:48:24 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/19 17:15:17 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/20 01:27:13 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 void	sort_big_stack(t_data *data)
 {
-	int max_num = data->size - 1;
-	int max_bits = 0;
 	int	j;
-	t_elem	*a_top = data->a->content;
+	int num;
+	t_elem	*a_top;
 
-	while ((max_num >> max_bits) != 0)
-		++max_bits;
-	for (int i = 0; i < max_bits; ++i)
+	for (int i = 0; !is_sorted(data) ; ++i)
 	{
-    	for(j = 0; j < data->size; ++j)
+    	for(j = 0; j < data->size - 1; ++j)
     	{        
-			int num = a_top->index;
+			a_top = data->a->content;
+			num = a_top->index;
 			if (((num >> i)&1) == 1)
 				ra(data); 
 			else
 				pb(data);
 		}
-		while (ft_lstsize(data->b) != 1)
+		while (ft_lstsize(data->b) != 0)
 			pa(data);
 	}
 }

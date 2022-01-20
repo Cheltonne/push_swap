@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:28:26 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/19 13:25:08 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/20 00:41:15 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	del(void *content);
 void	set_indexes(t_data *data);
 void	sort_big_stack(t_data *data);
 int		bubble_sort(t_data *data);
+int is_sorted(t_data *data);
 
 void	stack_visualizer(t_data *data, int choice);
 
