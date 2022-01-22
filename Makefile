@@ -12,6 +12,7 @@ FILES = push_swap \
 	     free_fct \
 	     moves \
 	     sorting \
+	     error_handling \
 
 SRCS =  $(addsuffix .c, $(FILES))
 

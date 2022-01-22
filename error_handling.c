@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_fct.c                                         :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 15:21:01 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/22 21:15:52 by chajax           ###   ########.fr       */
+/*   Created: 2022/01/22 21:57:55 by chajax            #+#    #+#             */
+/*   Updated: 2022/01/22 23:00:23 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	del(void *content)
+void	error_handling(t_data *data, int ac, char **av)
 {
-	if (!content)
+	if (ac == 1)
 		return ;
-	free(content);
-	content = NULL;
-}
-
-void	annihilate_linked_lists(t_data *data)
-{
-	ft_lstclear(&data->a, &del);
-	ft_lstclear(&data->a_cpy, &del);
-	ft_lstclear(&data->b, &del);
+	if (ac < 3 && parse_list(ac, av))
+	{
+		free(data);
+		return ;
+	}
+	ft_putstr_fd("Error\n", 2);
 	free(data);
+	return ;
 }

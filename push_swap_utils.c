@@ -6,7 +6,7 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 21:48:30 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/22 12:03:32 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/22 22:54:45 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,17 @@ void	swap(int *xp, int *yp)
 	*yp = tmp;
 }
 
-int	bubble_sort(t_data *data)
+int	bubble_sort(t_data *data, t_list *lst)
 {
 	t_index	index;
 	t_elem	**arr;
-	t_list	*lst;
 
 	index.i = 0;
 	arr = ft_calloc(data->size, sizeof(t_elem *));
 	if (!arr)
 		return (0);
 	lst = data->a_cpy;
-	fill_arr(arr, data->size - 1, lst);
+	fill_arr(data, arr, data->size - 1, lst);
 	while (index.i < data->size - 1)
 	{
 		index.j = 0;

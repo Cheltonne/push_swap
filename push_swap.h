@@ -6,7 +6,7 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:28:26 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/22 12:08:08 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/22 22:55:49 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,27 @@ typedef struct s_elem
 {
 	int		value;
 	int		index;
-	char	*bin;
 }			t_elem;
 
 void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
 void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
 void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
 int		parse_list(int size, char **av);
 void	init(t_data *data, char **av);
 void	del(void *content);
 void	set_indexes(t_data *data, t_list *lst, t_list *lst_cpy);
-void    sort_3(t_data *data, t_list *lst);
-void    sort_5(t_data *data, t_list *lst);
+void	init_sort_3(t_data *data, t_index *index, t_elem *elem, t_list *lst);
+void	sort_3(t_data *data);
+void	sort_5(t_data *data);
 void	sort_big_stack(t_data *data);
-int		bubble_sort(t_data *data);
-int		is_sorted(t_data *data);
-void	fill_arr(t_elem **arr, int size, t_list *lst);
+void	sort_choice(t_data *data);
+int		bubble_sort(t_data *data, t_list *lst);
+int		is_sorted(t_data *data, t_list *lst);
+void	fill_arr(t_data *data, t_elem **arr, int size, t_list *lst);
+void	annihilate_linked_lists(t_data *data);
+void	error_handling(t_data *data, int ac, char **av);
+int		is_all_digits(int ac, char **av);
 
 #endif

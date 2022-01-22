@@ -6,7 +6,7 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:10:01 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/22 11:59:59 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/22 19:43:48 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ void	rra(t_data *data)
 	int		i;
 	t_list	*sec_to_last;
 	t_list	*tail;
-	t_list	*tmp;
+	t_list	*head;
 
 	i = 1;
 	tail = ft_lstlast(data->a);
 	if (data->a && data->a->next)
 	{
-		tmp = data->a;
+		head = data->a;
 		data->a = tail;
-		tail->next = tmp;
+		data->a->next = head;
 		sec_to_last = data->a;
 		while (i < data->size)
 		{
@@ -77,10 +77,7 @@ void	pb(t_data *data)
 
 	if (!data->a)
 		return ;
-	if (data->b)
-		tmp = data->b;
-	else
-		tmp = NULL;
+	tmp = data->b;
 	tmp2 = data->a->next;
 	data->b = data->a;
 	data->b->next = tmp;
@@ -96,7 +93,7 @@ void	sa(t_data *data)
 		return ;
 	tmp = data->a;
 	data->a = data->a->next;
-	tmp->next = data->a->next->next;
+	tmp->next = data->a->next;
 	data->a->next = tmp;
 	ft_putstr_fd("sa\n", 1);
 }

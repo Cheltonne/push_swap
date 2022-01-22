@@ -6,25 +6,31 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:48:24 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/22 12:08:19 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/22 22:51:59 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_data *data, t_list *lst)
+void	sort_choice(t_data *data)
+{
+	if (data->size == 4)
+		sort_3(data);
+	else if (data->size == 6)
+		sort_5(data);
+	else
+		sort_big_stack(data);
+}
+
+void	sort_3(t_data *data)
 {
 	t_index	num;
 	t_elem	*elem;
+	t_list	*lst;
 
-	elem = lst->content;
-	num.i = elem->value;
-	lst = lst->next;
-	elem = lst->content;
-	num.j = elem->value;
-	lst = lst->next;
-	elem = lst->content;
-	num.o = elem->value;
+	lst = data->a;
+	elem = NULL;
+	init_sort_3(data, &num, elem, lst);
 	if (num.i > num.j && num.i > num.o && num.o < num.j)
 	{
 		sa(data);
@@ -43,15 +49,33 @@ void	sort_3(t_data *data, t_list *lst)
 		rra(data);
 }
 
-void	sort_5(t_data *data, t_list *lst)
+void	sort_5(t_data *data)
 {
-	pb(data);
-	pb(data);
-	sort_3(data, lst);
-	lst = data->a;
+	t_elem	*elem;
+	t_elem	*elem_min;
+	t_elem	*elem_max;
+
+	elem_min = data->a_cpy->content;
+	elem_max = ft_lstlast(data->a_cpy)->content;
+	while (ft_lstsize(data->b) < 2)
+	{
+		elem = data->a->content;
+		if (elem->value == elem_min->value || elem->value == elem_max->value)
+			pb(data);
+		else
+			ra(data);
+	}
+	sort_3(data);
 	pa(data);
-	sort_3(data, lst);
 	pa(data);
+	elem = data->a->content;
+	if (elem->value == elem_max->value)
+		ra(data);
+	else
+	{
+		sa(data);
+		ra(data);
+	}
 }
 
 void	sort_big_stack(t_data *data)
@@ -62,7 +86,7 @@ void	sort_big_stack(t_data *data)
 	t_elem	*a_top;
 
 	i = 0;
-	while (!is_sorted(data))
+	while (!is_sorted(data, data->a))
 	{
 		j = 0;
 		while (++j < data->size)
