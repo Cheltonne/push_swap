@@ -6,7 +6,7 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:21:01 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/18 18:13:44 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/20 18:15:00 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	del(void *content)
 {
-	t_elem *elem;
+	t_elem	*elem;
 
+	if (!content)
+		return ;
 	elem = content;
 	free(elem->bin);
 	free(content);

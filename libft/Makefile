@@ -6,7 +6,7 @@
 #    By: chajax <chajax@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 12:14:46 by chajax            #+#    #+#              #
-#    Updated: 2022/01/15 22:27:40 by chajax           ###   ########.fr        #
+#    Updated: 2022/01/21 23:30:15 by chajax           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,4 +88,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus all clean fclean re

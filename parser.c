@@ -6,12 +6,12 @@
 /*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 17:55:16 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/18 14:07:11 by chajax           ###   ########.fr       */
+/*   Updated: 2022/01/20 18:15:23 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	is_int(char *nb)
 {
 	long long	n;

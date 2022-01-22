@@ -6,7 +6,7 @@
 /*   By: chajax </var/spool/mail/chajax>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 13:52:17 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/17 13:51:30 by chajax           ###   ########.fr       */
+/*   Updated: 2021/07/08 08:46:37 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
-long long		ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned
 				int, char));

@@ -3,37 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chajax <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 17:25:13 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/20 01:25:16 by chajax           ###   ########.fr       */
+/*   Created: 2022/01/20 21:48:30 by chajax            #+#    #+#             */
+/*   Updated: 2022/01/22 12:03:32 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	stack_visualizer(t_data *data, int choice)
-{
-	t_list	*suisei;
-	t_elem	*hosimati;
-	int		size = ft_lstsize(data->a) - 1;
-
-	if (choice == 1)
-		suisei = data->a;
-	else
-		suisei = data->b;
-	for (int i = 0; i <= size; i++)
-	{
-		hosimati = suisei->content;
-		if (hosimati)
-		{
-			printf("    %d             %d\n", hosimati->value, hosimati->index);
-			suisei = suisei->next;
-		}
-	}
-	printf("-----------        -----------\n");
-	printf("Values             Indexes\n");
-}
 
 t_elem	*new_elem(int value, int index)
 {
@@ -69,44 +46,47 @@ void	init(t_data *data, char **av)
 
 void	swap(int *xp, int *yp)
 {
-	int temp = *xp;
+	int	tmp;
+
+	tmp = *xp;
 	*xp = *yp;
-	*yp = temp;
+	*yp = tmp;
 }
 
 int	bubble_sort(t_data *data)
 {
-	int		i, j;
-	t_elem 	**arr;
+	t_index	index;
+	t_elem	**arr;
 	t_list	*lst;
 
+	index.i = 0;
 	arr = ft_calloc(data->size, sizeof(t_elem *));
 	if (!arr)
 		return (0);
 	lst = data->a_cpy;
-	for (int o = 0; o < data->size - 1; o++)
+	fill_arr(arr, data->size - 1, lst);
+	while (index.i < data->size - 1)
 	{
-		arr[o] = lst->content;
-		lst = lst->next;
+		index.j = 0;
+		while (index.j < data->size - index.i - 2)
+		{
+			if (arr[index.j]->value > arr[index.j + 1]->value)
+				swap(&arr[index.j]->value, &arr[index.j + 1]->value);
+			index.j++;
+		}
+		index.i++;
 	}
-	for (i = 0; i < data->size - 1; i++)
-		for (j = 0; j < data->size - i - 2; j++)
-			if (arr[j]->value > arr[j + 1]->value)
-				swap(&arr[j]->value, &arr[j + 1]->value);
 	free(arr);
 	return (1);
 }
 
-void	set_indexes(t_data *data)
+void	set_indexes(t_data *data, t_list *lst, t_list *lst_cpy)
 {
-	int 	i;
-	int 	o;
-	t_list	*lst;
-	t_list	*lst_cpy;
+	int		i;
+	int		o;
 	t_elem	*a;
 	t_elem	*a_cpy;
 
-	lst = data->a;
 	i = 0;
 	while (i < data->size - 1)
 	{
@@ -124,31 +104,5 @@ void	set_indexes(t_data *data)
 		lst = lst->next;
 		i++;
 	}
-}
-
-int	is_sorted(t_data *data)
-{
-	int		i;
-	t_elem 	**arr;
-	t_list	*lst;
-	int size;
-
-	size = ft_lstsize(data->a);
-	arr = ft_calloc(size, sizeof(t_elem *));
-	if (!arr)
-		return (0);
 	lst = data->a;
-	for (int o = 0; o < size; o++)
-	{
-		arr[o] = lst->content;
-		lst = lst->next;
-	}
-	for (i = 0; i < size - 1; i++)
-		if (arr[i]->index > arr[i + 1]->index)
-		{
-			free(arr);
-			return (0);
-		}
-	free(arr);
-	return (1);
 }

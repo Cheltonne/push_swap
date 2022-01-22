@@ -7,6 +7,7 @@ RM = rm -f
 
 FILES = push_swap \
 	     push_swap_utils \
+	     push_swap_utils2 \
 	     parser \
 	     free_fct \
 	     moves \

@@ -6,15 +6,15 @@
 /*   By: chajax <chajax@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 19:11:53 by chajax            #+#    #+#             */
-/*   Updated: 2022/01/17 14:38:10 by chajax           ###   ########.fr       */
+/*   Updated: 2021/06/18 13:42:16 by chajax           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int			neg;
-	int			i;
-	long long	num;
+	int	neg;
+	int	i;
+	int	num;
 
 	i = 0;
 	neg = 1;
